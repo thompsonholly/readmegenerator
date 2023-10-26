@@ -22,6 +22,62 @@ const questions = [
       }
     }
   },
+  {
+    // description of README
+    type: 'input',
+    name: 'description',
+    message: 'Please enter a description of your project.',
+    validate: userDescription => {
+      if (userDescription) {
+        return true;
+      } else {
+        console.log('Please enter a description.');
+        return false;
+      }
+    }
+  },
+  {
+    // table of contents
+    type: 'input',
+    name: 'contents',
+    message: 'Please enter a Table of Contents.',
+    validate: userContents => {
+      if (userContents) {
+        return true;
+      } else {
+        console.log('Enter Table of Contents.');
+        return false;
+      }
+    }
+  },
+  {
+    // installation instructions
+    type: 'input',
+    name: 'installation',
+    message: 'Please enter how to install the project.',
+    validate: userInstall => {
+      if (userInstall) {
+        return true;
+      } else {
+        console.log('Enter the steps of installation.');
+        return false;
+      }
+    }
+  },
+  {
+    // usage information
+    type: 'input',
+    name: 'usage',
+    message: 'Please enter in how to use the project.',
+    validate: userUsage => {
+      if (userUsage) {
+        return true;
+      } else {
+        console.log('Enter how to use the project.');
+        return false;
+      }
+    }
+  },
 ]
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) { }

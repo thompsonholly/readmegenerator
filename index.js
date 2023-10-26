@@ -2,6 +2,7 @@
 const inquirer = require("inquirer");
 // fs is file system
 const fs = require("fs");
+const { writeFile } = require('fs').promises;
 // const { userInfo } = require("os");
 const generateMarkdown = require('./utils/generateMarkdown')
 console.log("Please enter your information to create a professional README")
@@ -105,28 +106,38 @@ const questions = [
         return false;
       }
     }
+  },
+  {
+    // license
+    type: 'checkbox',
+    name: 'license',
+    choices: ["MIT", "GPLv3", "GPL"],
+    message: 'Pick your License.'
   }
-];
+]
+// .then((data) => {
+//   const readmePageContent = generateMarkdown(data)
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (err) => {
+function writeToFile(readmePageContent) {
+  fs.writeFile('README.md', data, (err) => {
     if (err) {
       console.log('Error');
     }
     console.log('You created a README!')
   })
-};
+}
+
 
 
 // TODO: Create a function to initialize app
-function init() {
-  inquirer.prompt(questions)
-    .then(function (userInput) {
-      console.log(userInput)
-      writeToFile('README.md', generateMarkdown(userInput));
-    });
-};
+// function init() {
+//   inquirer.prompt(questions)
+//     .then(function (userInput) {
+//       console.log(userInput)
+//       writeToFile('README.md', generateMarkdown(userInput));
+//     });
+// };
 
 
 // Function call to initialize app

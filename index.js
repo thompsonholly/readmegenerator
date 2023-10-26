@@ -82,7 +82,7 @@ const questions = [
     // contribution guidelines
     type: 'input',
     name: 'contribute',
-    message: 'How can users contribut to the project?',
+    message: 'How can users contribute to the project?',
     validate: userContribute => {
       if (userContribute) {
         return true;
@@ -120,7 +120,14 @@ function writeToFile(fileName, data) {
 
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+  inquirer.prompt(questions)
+    .then(function (userInput) {
+      console.log(userInput)
+      writeToFile('README.md', generateMarkdown(userInput));
+    });
+};
+
 
 // Function call to initialize app
 init();

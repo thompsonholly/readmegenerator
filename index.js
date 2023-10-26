@@ -78,7 +78,36 @@ const questions = [
       }
     }
   },
-]
+  {
+    // contribution guidelines
+    type: 'input',
+    name: 'contribute',
+    message: 'How can users contribut to the project?',
+    validate: userContribute => {
+      if (userContribute) {
+        return true;
+      } else {
+        console.log('Enter in how to contribute to the project');
+        return false;
+      }
+    }
+  },
+  {
+    // test instructions
+    type: 'input',
+    name: 'test',
+    message: 'How can users test the project?',
+    validate: userTest => {
+      if (userTest) {
+        return true;
+      } else {
+        console.log('Enter in how to test the project.');
+        return false;
+      }
+    }
+  }
+];
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) { }
 

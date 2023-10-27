@@ -4,7 +4,8 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const { writeFile } = require('fs').promises;
 // const { userInfo } = require("os");
-const generateMarkdown = require('./utils/generateMarkdown')
+const generateMarkdown = require('./utils/generateMarkdown');
+const { clear } = require("console");
 console.log("Please enter your information to create a professional README")
 console.log("Answer the following to create a high quality README")
 // TODO: Create an array of questions for user input
@@ -33,20 +34,6 @@ const questions = [
         return true;
       } else {
         console.log('Please enter a description.');
-        return false;
-      }
-    }
-  },
-  {
-    // table of contents
-    type: 'input',
-    name: 'contents',
-    message: 'Please enter a Table of Contents.',
-    validate: userContents => {
-      if (userContents) {
-        return true;
-      } else {
-        console.log('Enter Table of Contents.');
         return false;
       }
     }
@@ -115,12 +102,9 @@ const questions = [
     message: 'Pick your License.'
   }
 ]
-// .then((data) => {
-//   const readmePageContent = generateMarkdown(data)
 
-// TODO: Create a function to write README file
-function writeToFile(readmePageContent) {
-  fs.writeFile('README.md', data, (err) => {
+function writeToFile(strawberry) {
+  fs.writeFile('README.md', strawberry, (err) => {
     if (err) {
       console.log('Error');
     }
@@ -128,7 +112,23 @@ function writeToFile(readmePageContent) {
   })
 }
 
+function init() {
+  inquirer.prompt(questions).then((data) => {
+    // print what data looks like right now before passing into generateMarkdown
+    console.log('Data is', data);
 
+    const readmePageContent = generateMarkdown(data);
+
+    console.log('readme is', readmePageContent);
+
+    // TODO: Create a function to write README file
+    // so now that you have captured the return text from your functioni generateMardkown
+    // i.e. readmePageContent, what do you want to do with it? Save it to a file!
+    // So run your function that saves the content to a file
+    // call writeToFile here...
+    writeToFile(readmePageContent);
+  })
+}
 
 // TODO: Create a function to initialize app
 // function init() {

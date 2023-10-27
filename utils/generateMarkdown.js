@@ -44,27 +44,13 @@ function generateMarkdown(data) {
   ## Contribution
   ${data.contribute}
 
-  ## License
-
-  ${data.userLicense}
-
   ## Questions
 
   Here is how to contact me:
 
-  Click this link to access my Github account:('https://github.com/)${data.githubUser}/
+  Click this link to access my Github account: https://github.com/${data.github}/
 
-  Email me with additional questions:
-
-
-
-
-
-
-
-
-
-
+  Email me with additional questions: ${data.email}
 `
 }
 

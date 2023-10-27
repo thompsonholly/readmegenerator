@@ -1,7 +1,7 @@
-# sss
+# Hello
 
   ## License
-  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+  ![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
   ## Table of Contents
   - [Description](#description)
@@ -10,39 +10,22 @@
   - [Contribution](#contribution)
   - [Test](#test)
 
-
-
-
-
   ## Description
-  sss
+  Yes 
+
   ## Installation
-  sss
+  I am so good
 
   ## Usage
-  ss
+  I am very smart
 
   ## Contribution
-  ss
-
-  ## License
-
-  undefined
+  I am learning how to code
 
   ## Questions
 
   Here is how to contact me:
 
-  Click this link to access my Github account:  undefined
+  Click this link to access my Github account: https://github.com/thompsonholly/
 
-  Email me with additional questions:
-
-
-
-
-
-
-
-
-
-
+  Email me with additional questions: hollyletson@gmail.com

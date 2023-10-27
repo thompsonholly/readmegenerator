@@ -125,7 +125,21 @@ const questions = [
         return false;
       }
     }
-  }
+  },
+  {
+    // email input
+    type: 'input',
+    name: 'email',
+    message: 'Please enter in your email address.',
+    validate: userEmail => {
+      if (userEmail) {
+        return true;
+      } else {
+        console.log('Enter in how to test the project.');
+        return false;
+      }
+    }
+  },
 
 ]
 // strawberry is an argument and is sort of a placeholder, great analogy from tutor and example

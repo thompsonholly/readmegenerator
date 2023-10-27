@@ -5,6 +5,7 @@ const fs = require("fs");
 const { writeFile } = require('fs')
 // .promises;
 // const { userInfo } = require("os");
+// const renderLicenseBadge = require('./utils/generateMarkdown')
 const generateMarkdown = require('./utils/generateMarkdown');
 const { clear } = require("console");
 console.log("Please enter your information to create a professional README");
@@ -98,7 +99,7 @@ const questions = [
   },
   {
     // license
-    type: 'pick',
+    type: 'checkbox',
     name: 'license',
     choices: ["MIT", "GPLv3", "GPL"],
     message: 'Please pick your License.',
@@ -110,7 +111,22 @@ const questions = [
         return false;
       }
     }
+  },
+  {
+    // github username
+    type: 'input',
+    name: 'github',
+    message: 'Please enter your GitHub username.',
+    validate: githubUser => {
+      if (githubUser) {
+        return true;
+      } else {
+        console.log('Please link your GitHub username');
+        return false;
+      }
+    }
   }
+
 ]
 // strawberry is an argument and is sort of a placeholder, great analogy from tutor and example
 function writeToFile(strawberry) {
@@ -130,7 +146,7 @@ function init() {
 
     const readmePageContent = generateMarkdown(data);
 
-    console.log('readme is', readmePageContent);
+    // console.log('readme is', readmePageContent);
 
     // TODO: Create a function to write README file
     // so now that you have captured the return text from your functioni generateMardkown

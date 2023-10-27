@@ -1,11 +1,9 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let licenseType = license; // i think this is problem #1
+  let licenseType = license[0];
+  console.log(licenseType)
   let yourLicense = ''
   if (licenseType === 'MIT') {
     yourLicense = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`
@@ -14,24 +12,28 @@ function renderLicenseBadge(license) {
   } else if (licenseType === 'GPL') {
     yourLicense = `![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)`
   } else {
-    license = "N/A"
+    yourLicense = "N/A"
   }
   return yourLicense;
 };
-renderLicenseBadge();
+
 
 function generateMarkdown(data) {
 
   return `# ${data.title}
 
-  ## Description
-  ${data.description}
+  ## License
+  ${renderLicenseBadge(data.license)}
 
   ## Table of Contents
+  - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
-  - [Credits](#credits)
-  - [License](#license)
+  - [Contribution](#contribution)
+  - [Test](#test)
+
+  ## Description
+  ${data.description}
 
   ## Installation
   ${data.installation}
@@ -39,14 +41,26 @@ function generateMarkdown(data) {
   ## Usage
   ${data.usage}
 
-  ## Credits
+  ## Contribution
   ${data.contribute}
 
   ## License
 
-  ${renderLicenseBadge()}
+  ${data.userLicense}
 
-  ## Badges
+  ## Questions
+
+  Here is how to contact me:
+
+  Click this link to access my Github account:('https://github.com/)${data.githubUser}/
+
+  Email me with additional questions:
+
+
+
+
+
+
 
 
 
@@ -54,13 +68,8 @@ function generateMarkdown(data) {
 `
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
 
 
-// TODO: Create a function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `# ${data.title} `, `## ${data.description} `, `### ${data.contents} `;
-// }
 
 module.exports = generateMarkdown;
+

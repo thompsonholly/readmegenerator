@@ -2,12 +2,14 @@
 const inquirer = require("inquirer");
 // fs is file system
 const fs = require("fs");
-const { writeFile } = require('fs').promises;
+const { writeFile } = require('fs')
+// .promises;
 // const { userInfo } = require("os");
 const generateMarkdown = require('./utils/generateMarkdown');
 const { clear } = require("console");
-console.log("Please enter your information to create a professional README")
-console.log("Answer the following to create a high quality README")
+console.log("Please enter your information to create a professional README");
+console.log("Answer the following to create a high quality README");
+
 // TODO: Create an array of questions for user input
 const questions = [
   {
@@ -96,13 +98,21 @@ const questions = [
   },
   {
     // license
-    type: 'checkbox',
+    type: 'pick',
     name: 'license',
     choices: ["MIT", "GPLv3", "GPL"],
-    message: 'Pick your License.'
+    message: 'Please pick your License.',
+    validate: userLicense => {
+      if (userLicense) {
+        return true;
+      } else {
+        console.log('Enter in your license');
+        return false;
+      }
+    }
   }
 ]
-
+// strawberry is an argument and is sort of a placeholder, great analogy from tutor and example
 function writeToFile(strawberry) {
   fs.writeFile('README.md', strawberry, (err) => {
     if (err) {
@@ -112,6 +122,7 @@ function writeToFile(strawberry) {
   })
 }
 
+// TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((data) => {
     // print what data looks like right now before passing into generateMarkdown
@@ -129,16 +140,5 @@ function init() {
     writeToFile(readmePageContent);
   })
 }
-
-// TODO: Create a function to initialize app
-// function init() {
-//   inquirer.prompt(questions)
-//     .then(function (userInput) {
-//       console.log(userInput)
-//       writeToFile('README.md', generateMarkdown(userInput));
-//     });
-// };
-
-
 // Function call to initialize app
 init();

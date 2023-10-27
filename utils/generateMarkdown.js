@@ -5,7 +5,7 @@
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  let licenseType = license.license; // i think this is problem #1
+  let licenseType = license; // i think this is problem #1
   let yourLicense = ''
   if (licenseType === 'MIT') {
     yourLicense = `![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)`
@@ -14,10 +14,11 @@ function renderLicenseBadge(license) {
   } else if (licenseType === 'GPL') {
     yourLicense = `![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)`
   } else {
-    license.license = "N/A"
+    license = "N/A"
   }
   return yourLicense;
 };
+renderLicenseBadge();
 
 function generateMarkdown(data) {
 
@@ -43,7 +44,7 @@ function generateMarkdown(data) {
 
   ## License
 
-  ${renderLicenseBadge(data.license)}
+  ${renderLicenseBadge()}
 
   ## Badges
 

@@ -2,10 +2,8 @@
 const inquirer = require("inquirer");
 // fs is file system
 const fs = require("fs");
-const { writeFile } = require('fs')
-// .promises;
-// const { userInfo } = require("os");
-// const renderLicenseBadge = require('./utils/generateMarkdown')
+const { writeFile } = require('fs');
+
 const generateMarkdown = require('./utils/generateMarkdown');
 const { clear } = require("console");
 console.log("Please enter your information to create a professional README");
@@ -144,7 +142,7 @@ const questions = [
 ]
 // strawberry is an argument and is sort of a placeholder, great analogy from tutor and example
 function writeToFile(strawberry) {
-  fs.writeFile('README.md', strawberry, (err) => {
+  fs.writeFile('./output/README.md', strawberry, (err) => {
     if (err) {
       console.log('Error');
     }

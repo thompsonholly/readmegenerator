@@ -8,4 +8,5 @@ A user friendly app to create a high quality README. The user needs to follow th
 
 You can quickly and easily create a README file by using the command-line application to create one. 
 
-![screenshot] 
+![screenshot](/homework/readmegenerator/images/README.png)
+![screenshot](/homework/readmegenerator/images/README2.png)
